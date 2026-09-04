@@ -1,0 +1,388 @@
+/* Abiegnus Base Camp — THEMES
+   Each block below is one complete look. Edit a block to change that theme;
+   nothing here affects layout, which lives in core.css.
+   Switch from the menu, or by hand:  <html data-theme="light"> */
+
+:root {
+  /* shared geometry — themes may override */
+  --measure: 35rem;
+  --rail: 14rem;
+  --size-body: 1.125rem;
+  --leading-body: 1.75;
+  --size-h1: 2.0625rem;
+  --size-h2: 1.25rem;
+  --size-wordmark: 1.9375rem;
+  --size-prompt: 1.375rem;
+  --weight-heading: 600;
+  --weight-wordmark: 600;
+  --weight-tagline: 300;
+  --weight-prompt: 500;
+  --track-display: -0.018em;
+  --radius: 4px;
+  --radius-sm: 3px;
+  --panel-pad: 2.25rem 2.5rem 2.5rem;
+  --masthead-pad: 3.25rem 1.5rem 2.75rem;
+  --nav-blur: blur(12px);
+}
+
+
+/* ==========================================================================
+   CANOPY — solarpunk / sci-fi elven. Deep forest ground, living greens,
+   solar amber. The default.
+   ========================================================================== */
+
+html[data-theme="canopy"] {
+  --ground:        #04120C;
+  --panel:         linear-gradient(170deg, rgba(10,36,23,0.93) 0%, rgba(6,24,15,0.95) 100%);
+  --panel-2:       rgba(6, 24, 15, 0.72);
+  --panel-solid:   #0A2417;
+  --scroll-thumb: #04120C;
+  --scroll-thumb-hover: #0FA968;
+  --panel-shadow:  0 24px 60px -30px rgba(0,0,0,0.9);
+  --nav-bg:        rgba(4, 18, 12, 0.7);
+
+  --rule:          #143D26;
+  --rule-strong:   #143D26;
+  --rule-top:      rgba(53, 224, 138, 0.32);
+  --rule-dashed:   rgba(53, 224, 138, 0.35);
+
+  --text:          #DCF2E5;
+  --text-dim:      #9FC4AE;
+  --tagline-color: #C6E3D2;
+  --text-faint:    rgba(159, 196, 174, 0.45);
+  --heading:       #F2FFF7;
+
+  --accent:        #35E08A;
+  --accent-bright: #8CFFB8;
+  --warm:          #FFC94A;
+
+  --btn-bg:        linear-gradient(150deg, #8CFFB8 0%, #35E08A 55%, #0FA968 100%);
+  --btn-bg-hover:  linear-gradient(150deg, #B4FFD0 0%, #8CFFB8 55%, #35E08A 100%);
+  --btn-text:      #04120C;
+  --btn-border:    #8CFFB8;
+  --btn-glow:      0 0 0 1px rgba(53,224,138,0.18), 0 12px 30px -14px #35E08A;
+  --btn-glow-hover:0 0 0 1px rgba(140,255,184,0.3), 0 16px 38px -14px #8CFFB8;
+
+  --badge-text:    #04120C;
+  --card-bg:       rgba(10, 36, 23, 0.55);
+  --card-bg-hover: rgba(15, 55, 34, 0.6);
+  --marker-glow:   0 0 0 3px rgba(53,224,138,0.18), 0 0 14px #35E08A;
+
+  --bullet-size:      0.45rem;
+  --bullet-radius:    50% 0 50% 50%;
+  --bullet-transform: rotate(45deg);
+  --bullet-bg:        linear-gradient(140deg, #8CFFB8, #0FA968);
+  --bullet-glow:      0 0 8px rgba(53,224,138,0.5);
+
+  --font-display: Sora, "Segoe UI", system-ui, sans-serif;
+  --font-body:    Newsreader, Georgia, serif;
+
+  --atmosphere:
+    radial-gradient(58rem 40rem at 72% -12%, rgba(255,201,74,0.16) 0%, rgba(255,201,74,0) 62%),
+    radial-gradient(46rem 34rem at 8% 6%,    rgba(53,224,138,0.20) 0%, rgba(53,224,138,0) 60%),
+    radial-gradient(52rem 44rem at 88% 72%,  rgba(15,169,104,0.16) 0%, rgba(15,169,104,0) 64%),
+    radial-gradient(40rem 30rem at 22% 108%, rgba(140,255,184,0.10) 0%, rgba(140,255,184,0) 60%);
+
+  /* No hard edge: the canopy dissolves into the page instead of sitting on it
+     as a bar. The last gradient melts the bottom into --ground. */
+  --masthead-border: 0;
+  --masthead-pad: 5rem 1.5rem 4.5rem;
+
+  --masthead-bg:
+    linear-gradient(to bottom, rgba(4,18,12,0) 40%, rgba(4,18,12,0.75) 82%, #04120C 100%),
+    radial-gradient(42rem 30rem at 74% -14%, rgba(255,214,110,0.34) 0%, rgba(255,201,74,0) 66%),
+    radial-gradient(26rem 20rem at 92% 12%,  rgba(255,236,180,0.20) 0%, rgba(255,236,180,0) 62%),
+    radial-gradient(34rem 26rem at 14% 104%, rgba(53,224,138,0.22) 0%, rgba(53,224,138,0) 68%),
+    radial-gradient(30rem 24rem at 4% -8%,   rgba(6,32,20,0.9) 0%, rgba(6,32,20,0) 70%),
+    #071D13;
+
+  /* uneven shafts, as light actually falls between leaves */
+  --masthead-rays:
+    repeating-linear-gradient(97deg,
+      rgba(255,222,140,0) 0 7rem,
+      rgba(255,222,140,0.10) 7rem 8.6rem,
+      rgba(255,222,140,0) 8.6rem 15rem),
+    repeating-linear-gradient(104deg,
+      rgba(255,236,180,0) 0 12rem,
+      rgba(255,236,180,0.07) 12rem 14.5rem,
+      rgba(255,236,180,0) 14.5rem 26rem),
+    repeating-linear-gradient(92deg,
+      rgba(255,201,74,0) 0 20rem,
+      rgba(255,201,74,0.06) 20rem 23rem,
+      rgba(255,201,74,0) 23rem 38rem);
+
+  --rays-blur: 7px;
+  --rays-opacity: 0.95;
+  /* the shafts are strongest where they enter and fade as they fall */
+  --rays-mask: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.55) 58%, rgba(0,0,0,0) 100%);
+}
+
+
+/* ==========================================================================
+   MANUSCRIPT — the alchemical book. Parchment, iron-gall ink, rubrication
+   red and gold leaf. Light ground; the gentlest of the four on the eyes.
+   ========================================================================== */
+
+html[data-theme="manuscript"] {
+  --ground:        #EDE3CD;
+  --panel:         #FBF6EA;
+  --panel-2:       #F6EFDE;
+  --panel-solid:   #FBF6EA;
+  --scroll-thumb: #D2BE97;
+  --scroll-thumb-hover: #B9A277;
+  --panel-shadow:  0 18px 40px -28px rgba(70, 52, 26, 0.5);
+  --nav-bg:        rgba(246, 239, 222, 0.9);
+
+  --rule:          #D2BE97;
+  --rule-strong:   #B9A277;
+  --rule-top:      #B08D2E;
+  --rule-dashed:   #B08D2E;
+
+  --text:          #2A2118;
+  --text-dim:      #6B5B45;
+  --text-faint:    #9C8B71;
+  --heading:       #3A2A18;
+
+  --accent:        #8C2F1E;
+  --accent-bright: #B03A22;
+  --warm:          #75590C;   /* gold leaf, darkened to clear 4.5:1 on parchment */
+
+  --btn-bg:        #8C2F1E;
+  --btn-bg-hover:  #A63A25;
+  --btn-text:      #FBF6EA;
+  --btn-border:    #6E2415;
+  --btn-glow:      0 2px 0 #6E2415;
+  --btn-glow-hover:0 2px 0 #6E2415;
+
+  --badge-text:    #FBF6EA;
+  --card-bg:       #F6EFDE;
+  --card-bg-hover: #F1E7D0;
+  --marker-glow:   0 0 0 3px rgba(140, 47, 30, 0.15);
+
+  --bullet-size:      0.4rem;
+  --bullet-radius:    0;
+  --bullet-transform: rotate(45deg);
+  --bullet-bg:        #B08D2E;
+  --bullet-glow:      none;
+
+  --font-display: "EB Garamond", Garamond, Georgia, serif;
+  --font-body:    "EB Garamond", Garamond, Georgia, serif;
+
+  --size-body:      1.1875rem;
+  --leading-body:   1.7;
+  --weight-tagline: 400;
+  --weight-prompt:  600;
+  --track-display:  0;
+  --radius:         2px;
+  --radius-sm:      2px;
+
+  /* the faint mottle of laid paper */
+  --atmosphere:
+    radial-gradient(38rem 30rem at 12% 8%,  rgba(176,141,46,0.07) 0%, rgba(176,141,46,0) 60%),
+    radial-gradient(44rem 34rem at 88% 88%, rgba(140,47,30,0.05)  0%, rgba(140,47,30,0) 62%);
+
+  --masthead-bg:
+    radial-gradient(40rem 26rem at 80% 0%, rgba(176,141,46,0.18) 0%, rgba(176,141,46,0) 66%),
+    #F3EBD8;
+
+  --masthead-rays: none;
+}
+
+/* small caps for structure — the book's own way of labelling */
+html[data-theme="manuscript"] .elevation h2,
+html[data-theme="manuscript"] .ground,
+html[data-theme="manuscript"] .index .state {
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+}
+
+html[data-theme="manuscript"] .wordmark { letter-spacing: 0.01em; }
+
+
+/* ==========================================================================
+   NUIT — the night sky. "Every man and every woman is a star."
+   Azure through its gradations, with gold carrying the marks and formulae.
+   ========================================================================== */
+
+html[data-theme="nuit"] {
+  --ground:        #04101E;
+  --panel:         linear-gradient(170deg, rgba(8,28,48,0.93) 0%, rgba(5,18,33,0.95) 100%);
+  --panel-2:       rgba(6, 22, 39, 0.72);
+  --panel-solid:   #081C30;
+  --scroll-thumb: #04101E;
+  --scroll-thumb-hover: #1F86C8;
+  --panel-shadow:  0 24px 60px -30px rgba(0,0,0,0.9);
+  --nav-bg:        rgba(4, 16, 30, 0.72);
+
+  --rule:          #17405F;
+  --rule-strong:   #1E5077;
+  --rule-top:      rgba(79, 184, 245, 0.32);
+  --rule-dashed:   rgba(79, 184, 245, 0.34);
+
+  --text:          #D4E8F7;
+  --text-dim:      #8FB4CE;
+  --tagline-color: #C5DCEC;
+  --text-faint:    rgba(143, 180, 206, 0.45);
+  --heading:       #FFFFFF;
+
+  --accent:        #4FB8F5;   /* azure */
+  --accent-bright: #A8E0FF;
+  --warm:          #F0C86A;   /* star gold, carrying more of the page */
+
+  --btn-bg:        linear-gradient(150deg, #A8E0FF 0%, #4FB8F5 55%, #1F86C8 100%);
+  --btn-bg-hover:  linear-gradient(150deg, #CDEEFF 0%, #A8E0FF 55%, #4FB8F5 100%);
+  --btn-text:      #04101E;
+  --btn-border:    #A8E0FF;
+  --btn-glow:      0 0 0 1px rgba(79,184,245,0.18), 0 12px 30px -14px #4FB8F5;
+  --btn-glow-hover:0 0 0 1px rgba(168,224,255,0.3), 0 16px 38px -14px #A8E0FF;
+
+  --badge-text:    #04101E;
+  --card-bg:       rgba(8, 28, 48, 0.55);
+  --card-bg-hover: rgba(13, 40, 66, 0.62);
+  --marker-glow:   0 0 0 3px rgba(240,200,106,0.18), 0 0 14px #F0C86A;
+
+  --bullet-size:      0.4rem;
+  --bullet-radius:    50%;
+  --bullet-transform: none;
+  --bullet-bg:        #F0C86A;   /* gold, so the warm note runs through the text */
+  --bullet-glow:      0 0 8px rgba(240,200,106,0.75);
+
+  --font-display: "Cormorant Garamond", Garamond, Georgia, serif;
+  --font-body:    Inter, "Segoe UI", system-ui, sans-serif;
+
+  --size-wordmark:  2.25rem;
+  --weight-wordmark: 500;
+  --weight-heading: 600;
+  --size-h1:        2.25rem;
+  --size-prompt:    1.5rem;
+  --weight-prompt:  500;
+  --track-display:  -0.005em;
+  --size-body:      1.0625rem;
+  --leading-body:   1.72;
+
+  /* azure depths, a gold star-glow, and scattered stars — some of them gold */
+  --atmosphere:
+    radial-gradient(52rem 40rem at 78% -8%, rgba(79,184,245,0.18)  0%, rgba(79,184,245,0) 62%),
+    radial-gradient(40rem 30rem at 18% 12%, rgba(240,200,106,0.10) 0%, rgba(240,200,106,0) 60%),
+    radial-gradient(46rem 36rem at 14% 92%, rgba(31,134,200,0.16)  0%, rgba(31,134,200,0) 64%),
+    radial-gradient(1.5px 1.5px at 12% 18%, rgba(255,244,214,0.85) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 28% 62%, rgba(255,255,255,0.6)  50%, transparent 51%),
+    radial-gradient(1px 1px   at 44% 12%, rgba(240,200,106,0.8)  50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 63% 40%, rgba(255,255,255,0.75) 50%, transparent 51%),
+    radial-gradient(1px 1px   at 77% 74%, rgba(255,244,214,0.65) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 88% 26%, rgba(255,255,255,0.8)  50%, transparent 51%),
+    radial-gradient(1px 1px   at 34% 88%, rgba(240,200,106,0.6)  50%, transparent 51%),
+    radial-gradient(1px 1px   at 55% 96%, rgba(255,255,255,0.5)  50%, transparent 51%);
+
+  /* Same architecture as Canopy — shafts of light falling into the page with
+     no hard edge — but the light here is azure rather than gold. Gold is kept
+     out of the banner entirely: as a wash at low alpha over this ground it
+     composites to a desaturated grey-green rather than gold. It still carries
+     the markers, bullets and formulae, where near-opaque marks preserve it. */
+  --masthead-border: 0;
+  --masthead-pad: 5rem 1.5rem 4.5rem;
+
+  --masthead-bg:
+    linear-gradient(to bottom, rgba(4,16,30,0) 40%, rgba(4,16,30,0.78) 82%, #04101E 100%),
+    radial-gradient(42rem 30rem at 74% -14%, rgba(154,226,255,0.32) 0%, rgba(154,226,255,0) 66%),
+    radial-gradient(26rem 20rem at 92% 10%,  rgba(79,184,245,0.26)  0%, rgba(79,184,245,0) 62%),
+    radial-gradient(34rem 26rem at 14% 104%, rgba(31,134,200,0.30)  0%, rgba(31,134,200,0) 68%),
+    radial-gradient(30rem 24rem at 4% -8%,   rgba(5,18,34,0.9)      0%, rgba(5,18,34,0) 70%),
+    #061729;
+
+  /* three gradations of azure, at slightly different angles, so the shafts
+     read as depth rather than as a pattern */
+  --masthead-rays:
+    repeating-linear-gradient(97deg,
+      rgba(154,226,255,0) 0 7rem,
+      rgba(154,226,255,0.13) 7rem 8.6rem,
+      rgba(154,226,255,0) 8.6rem 15rem),
+    repeating-linear-gradient(104deg,
+      rgba(79,184,245,0) 0 12rem,
+      rgba(79,184,245,0.10) 12rem 14.5rem,
+      rgba(79,184,245,0) 14.5rem 26rem),
+    repeating-linear-gradient(92deg,
+      rgba(31,134,200,0) 0 20rem,
+      rgba(31,134,200,0.10) 20rem 23rem,
+      rgba(31,134,200,0) 23rem 38rem);
+
+  --rays-blur: 7px;
+  --rays-opacity: 0.95;
+  --rays-mask: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.55) 58%, rgba(0,0,0,0) 100%);
+}
+
+
+/* ==========================================================================
+   LIGHT — pure utility. No atmosphere, no glow, no webfonts. Maximum
+   legibility, fastest paint, cleanest print.
+   ========================================================================== */
+
+html[data-theme="light"] {
+  --ground:        #FFFFFF;
+  --panel:         #FFFFFF;
+  --panel-2:       #FFFFFF;
+  --panel-solid:   #FFFFFF;
+  --scroll-thumb: #C9C9C9;
+  --scroll-thumb-hover: #9A9A9A;
+  --panel-shadow:  none;
+  --nav-bg:        #F7F7F7;
+
+  --rule:          #D4D4D4;
+  --rule-strong:   #9A9A9A;
+  --rule-top:      #D4D4D4;
+  --rule-dashed:   #B4B4B4;
+
+  --text:          #1A1A1A;
+  --text-dim:      #565656;
+  --text-faint:    #8A8A8A;
+  --heading:       #000000;
+
+  --accent:        #0A58CA;
+  --accent-bright: #084298;
+  --warm:          #333333;
+
+  --btn-bg:        #0A58CA;
+  --btn-bg-hover:  #084298;
+  --btn-text:      #FFFFFF;
+  --btn-border:    #084298;
+  --btn-glow:      none;
+  --btn-glow-hover:none;
+
+  --badge-text:    #FFFFFF;
+  --card-bg:       #FAFAFA;
+  --card-bg-hover: #F0F0F0;
+  --marker-glow:   none;
+
+  --bullet-size:      0.35rem;
+  --bullet-radius:    0;
+  --bullet-transform: none;
+  --bullet-bg:        #565656;
+  --bullet-glow:      none;
+
+  --font-display: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-body:    system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  --size-body:     1.0625rem;
+  --leading-body:  1.65;
+  --size-h1:       1.75rem;
+  --size-h2:       1.1875rem;
+  --size-wordmark: 1.5rem;
+  --size-prompt:   1.1875rem;
+  --weight-prompt: 600;
+  --track-display: 0;
+  --radius:        0;
+  --radius-sm:     0;
+  --panel-pad:     1.75rem 0 0;
+  --masthead-pad:  1.75rem 1.5rem 1.5rem;
+  --nav-blur:      none;
+
+  --atmosphere:    none;
+  --masthead-bg:   #FFFFFF;
+  --masthead-rays: none;
+}
+
+/* utility means no ornament: strip the frame off the reading surface */
+html[data-theme="light"] .content { border: 0; border-top: 1px solid var(--rule); }
+html[data-theme="light"] .elevation { border-width: 0 0 0 1px; border-radius: 0; }
+html[data-theme="light"] .masthead { border-bottom: 0; }
+html[data-theme="light"] .index li { border-left-width: 3px; }

@@ -1,0 +1,18 @@
+# This repo is a deployment staging ground only.
+# Nothing lives here that Cloudflare Pages does not serve from site/.
+
+# local notes - home computer only, never deployed
+devlog/
+
+# local tooling and editor state
+.claude/
+node_modules/
+.wrangler/
+.venv/
+__pycache__/
+
+# OS cruft
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.swp
