@@ -1,0 +1,32 @@
+{
+  // Abiegnus Base Camp - static site served from site/ by Cloudflare Workers.
+  //
+  // Without this file wrangler re-infers everything on every build and silently
+  // enables defaults. The first deploy did exactly that, turning on Preview URLs
+  // nobody asked for. Everything here is a deliberate choice, not a guess.
+
+  // Must match the Worker's name in the dashboard. If they diverge, a deploy
+  // creates a SECOND Worker under this name rather than updating the existing
+  // one. Public address is <name>.abc-outercollege.workers.dev.
+  "name": "droid",
+  "compatibility_date": "2026-09-03",
+
+  // Pins what wrangler previously auto-detected.
+  "assets": {
+    "directory": "./site"
+  },
+
+  // The account subdomain is abc-outercollege.workers.dev, so this address
+  // exposes nothing. Set false to take the site off the public internet
+  // entirely and serve it only from a custom domain.
+  "workers_dev": true,
+
+  // OFF deliberately. Preview URLs publish a separate public address for every
+  // build and every version. Any page gated behind a code would have an
+  // ungated copy of itself sitting on one of them.
+  "preview_urls": false,
+
+  "observability": {
+    "enabled": true
+  }
+}
