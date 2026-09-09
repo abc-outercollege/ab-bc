@@ -245,118 +245,42 @@ body > * { position: relative; z-index: 1; }
   box-shadow: var(--panel-shadow);
 }
 
-/* ---------- the ascent ----------
-   It lives inside the menu panel: the navigation IS the climb. Reads bottom
-   to top — Abiegnus Base Camp on the ground, Student above it holding this
-   grade's pages, then the grades beyond. */
+/* ---------- menu links ----------
+   Everything in here is either a working link or, for "pending", explicitly
+   marked as not one. No static decoration standing in a tap-first list. */
 
-.elevation { font-family: var(--font-display); }
-
-.elevation h2 {
-  margin: 0 0 0.85rem;
-  padding-bottom: 0.5rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--text-dim);
-  border-bottom: 1px solid var(--rule);
-}
-
-/* column-reverse: DOM order stays Student -> Beyond for screen readers,
-   the visual axis climbs upward, in the direction of travel */
-.scale {
-  display: flex;
-  flex-direction: column-reverse;
+.menu-links {
   margin: 0;
-  padding: 0 0 0 1.3rem;
-  list-style: none;
-  border-left: 1px solid var(--rule);
-}
-
-.scale > li {
-  position: relative;
-  padding: 0 0 1.1rem;
-  font-size: 0.875rem;
-  line-height: 1.3;
-  color: var(--text-dim);
-}
-
-.scale > li:first-child { padding-bottom: 0; }
-
-.scale > li::before {
-  content: "";
-  position: absolute;
-  left: -1.3rem;
-  top: 0.42em;
-  width: 0.6rem;
-  height: 1px;
-  background: var(--rule-strong);
-}
-
-.scale > li[aria-current="step"] { color: var(--heading); font-weight: 600; }
-
-.scale > li[aria-current="step"]::before {
-  left: -1.6rem;
-  top: 0.24em;
-  width: 0.62rem;
-  height: 0.62rem;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: var(--marker-glow);
-}
-
-.scale .further { color: var(--text-faint); }
-
-.ground {
-  margin: 1rem 0 0;
-  padding-top: 0.85rem;
-  border-top: 1px solid var(--rule);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  color: var(--text-dim);
-}
-
-/* the AASC nested inside Student: this collection IS the grade's coursework */
-
-.grade-body {
-  margin: 0.5rem 0 0.15rem;
-  padding: 0 0 0 0.85rem;
-  list-style: none;
-  border-left: 1px dashed var(--rule-dashed);
-}
-
-.grade-body-label {
-  display: block;
-  margin: 0.3rem 0 0.15rem;
-  font-size: 0.6875rem;
-  font-weight: 400;
-  font-style: italic;
-  color: var(--text-dim);
-}
-
-.grade-body li {
   padding: 0;
-  font-size: 0.875rem;
+  list-style: none;
+  font-family: var(--font-display);
+}
+
+.menu-links li {
+  font-size: 0.9375rem;
   font-weight: 400;
   line-height: 1.35;
   color: var(--text-dim);
 }
 
-.grade-body a {
+.menu-links a {
   display: block;
-  padding: 0.5rem 0.6rem;
-  margin-left: -0.6rem;
+  padding: 0.6rem 0.5rem;
+  margin: 0 -0.5rem;
   border-radius: var(--radius-sm);
   color: inherit;
   text-decoration: none;
 }
 
-.grade-body a:hover { color: var(--accent-bright); background: var(--card-bg-hover); }
-.grade-body li.pending { padding: 0.5rem 0; }
+.menu-links a:hover { color: var(--accent-bright); background: var(--card-bg-hover); }
 
-.grade-body li[aria-current="page"] { color: var(--accent-bright); font-weight: 600; }
-.grade-body li.pending { color: var(--text-faint); font-style: italic; }
+.menu-links li[aria-current="page"] a { color: var(--accent-bright); font-weight: 600; }
+
+.menu-links li.pending {
+  padding: 0.6rem 0.5rem;
+  color: var(--text-faint);
+  font-style: italic;
+}
 
 /* ---------- typography ---------- */
 
@@ -569,23 +493,21 @@ blockquote {
   .page { padding: 1.75rem 1rem 3rem; }
   .content { padding: 1.6rem 1.4rem 1.75rem; }
 
-  /* the ascent lives in the menu now, so it needs no separate mobile layout */
   .nav { padding: 0 1rem; }
 
   /* touch targets: measured at 35px and 32px, below the 44px minimum.
      min-height guarantees it rather than inferring it from padding. */
-  .grade-body a {
+  .menu-links a {
     display: flex;
     align-items: center;
     min-height: 44px;
-    padding: 0.5rem 0.6rem;
+    padding: 0.5rem 0.5rem;
   }
 
-  .grade-body li.pending {
+  .menu-links li.pending {
     display: flex;
     align-items: center;
     min-height: 44px;
-    padding: 0.5rem 0;
   }
 
   .theme select { min-height: 44px; padding: 0.5rem; }
@@ -603,7 +525,7 @@ blockquote {
 }
 
 @media print {
-  body::before, .masthead::before, .nav, .elevation, .seam { display: none !important; }
+  body::before, .masthead::before, .nav, .seam { display: none !important; }
   body { background: #fff; color: #000; }
   .content { border: 0; box-shadow: none; background: #fff; padding: 0; max-width: none; }
   .page { display: block; padding: 0; }

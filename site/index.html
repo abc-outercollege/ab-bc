@@ -25,25 +25,12 @@
   <div class="nav-inner">
     <details class="menu">
       <summary><svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="2" y="0" rx="1"></rect><rect width="18" height="2" y="5" rx="1" class="bar-mid"></rect><rect width="18" height="2" y="10" rx="1"></rect></svg><span>Menu</span></summary>
-      <div class="menu-panel">
-      <div class="elevation" aria-label="Where this page sits in the ascent">
-        <h2>The ascent</h2>
-        <ol class="scale">
-          <li aria-current="step">
-            Student
-            <span class="grade-body-label">AASC &mdash; this grade&rsquo;s coursework</span>
-            <ul class="grade-body">
-              <li aria-current="page"><a href="/">Home</a></li>
-              <li><a href="/intro/">AASC 101</a></li>
-              <li><a href="/aasc-module-1-0-the-magick-mirror/">Module 1.0: The Magick Mirror</a></li>
-              <li class="pending">Reading List Reviews</li>
-            </ul>
-          </li>
-          <li>Probationer</li>
-          <li class="further">Beyond</li>
-        </ol>
-        <p class="ground">Abiegnus Base Camp</p>
-      </div>
+      <ul class="menu-links" aria-label="Pages">
+        <li aria-current="page"><a href="/">Home</a></li>
+        <li><a href="/intro/">AASC 101</a></li>
+        <li><a href="/aasc-module-1-0-the-magick-mirror/">Module 1.0: The Magick Mirror</a></li>
+        <li class="pending">Reading List Reviews</li>
+      </ul>
       <div class="theme" hidden>
         <label for="theme-select">Theme</label>
         <select id="theme-select" data-theme-select>
@@ -52,7 +39,6 @@
           <option value="nuit">Nuit</option>
           <option value="light">Light</option>
         </select>
-      </div>
       </div>
     </details>
   </div>
