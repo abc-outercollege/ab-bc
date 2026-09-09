@@ -200,11 +200,11 @@ html[data-theme="manuscript"] .wordmark { letter-spacing: 0.01em; }
 
 
 /* ==========================================================================
-   NUIT — the night sky. "Every man and every woman is a star."
+   NIGHT — the night sky. "Every man and every woman is a star."
    Azure through its gradations, with gold carrying the marks and formulae.
    ========================================================================== */
 
-html[data-theme="nuit"] {
+html[data-theme="night"] {
   --ground:        #04101E;
   --panel:         linear-gradient(170deg, rgba(8,28,48,0.93) 0%, rgba(5,18,33,0.95) 100%);
   --panel-2:       rgba(6, 22, 39, 0.72);
