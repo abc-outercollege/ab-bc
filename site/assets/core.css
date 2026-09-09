@@ -246,8 +246,8 @@ body > * { position: relative; z-index: 1; }
 }
 
 /* ---------- menu links ----------
-   Everything in here is either a working link or, for "pending", explicitly
-   marked as not one. No static decoration standing in a tap-first list. */
+   Every item here is a working link. No static or pending entries — a
+   tap-first menu is for actionable wayfinding only. */
 
 .menu-links {
   margin: 0;
@@ -275,12 +275,6 @@ body > * { position: relative; z-index: 1; }
 .menu-links a:hover { color: var(--accent-bright); background: var(--card-bg-hover); }
 
 .menu-links li[aria-current="page"] a { color: var(--accent-bright); font-weight: 600; }
-
-.menu-links li.pending {
-  padding: 0.6rem 0.5rem;
-  color: var(--text-faint);
-  font-style: italic;
-}
 
 /* ---------- typography ---------- */
 
@@ -502,12 +496,6 @@ blockquote {
     align-items: center;
     min-height: 44px;
     padding: 0.5rem 0.5rem;
-  }
-
-  .menu-links li.pending {
-    display: flex;
-    align-items: center;
-    min-height: 44px;
   }
 
   .theme select { min-height: 44px; padding: 0.5rem; }
