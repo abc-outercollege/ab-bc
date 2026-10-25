@@ -18,22 +18,38 @@
 
 ## DNS records (abiegnusbasecamp.org)
 
-| Type | Name | Content | Proxied |
-|---|---|---|---|
-| Worker | `abiegnusbasecamp.org` | `droid` | Yes |
-| CNAME | `www` | `abiegnusbasecamp.org` | Yes |
-| TXT | `@` | `v=spf1 -all` | — |
-| TXT | `*._domainkey` | `v=DKIM1; p=` | — |
-| TXT | `_dmarc` | `v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s;` | — |
+| Type | Name | Content | Proxied | Added |
+|---|---|---|---|---|
+| Worker | `abiegnusbasecamp.org` | `droid` | Yes | 2026-10-24 |
+| CNAME | `www` | `abiegnusbasecamp.org` | Yes | 2026-10-24 |
+| MX | `@` | `mail.dnsexit.com` (pri 10) | No | 2026-10-24 |
+| MX | `@` | `mail2.dnsexit.com` (pri 20) | No | 2026-10-24 |
+| TXT | `@` | `v=spf1 include:dnsexit.com ~all` | No | 2026-10-25 |
+| TXT | `_dmarc` | `v=DMARC1; p=none; rua=mailto:contact@abiegnusbasecamp.org` | No | 2026-10-25 |
 
 **DNS Setup:** Full (Cloudflare nameservers)
 **Nameservers:** `autumn.ns.cloudflare.com`, `vicente.ns.cloudflare.com`
 
+**Note:** The placeholder `v=spf1 -all` and null DKIM records that were here
+prior to 2026-10-25 have been replaced. SPF now authorises DNSExit as the
+outbound mail relay. DMARC is monitor-only (`p=none`) pending confirmation
+that all legitimate sending paths pass cleanly; tighten to `p=quarantine` or
+`p=reject` once stable.
+
 ## Email
 
-Not yet configured. SPF `-all` and null DKIM are in place to prevent spoofing
-until a provider is chosen. When email hosting is set up, update the SPF and
-DKIM records accordingly.
+- **Provider:** DNSExit Business Email (free tier)
+- **Account:** abc_aasc (registered with abiegnusbasecamp@proton.me)
+- **Mailbox:** contact@abiegnusbasecamp.org
+- **Limits:** 2 mailboxes, 100 MB total storage, 20 outbound messages/day
+- **IMAP:** `pop.dnsexit.com:143`, STARTTLS
+- **SMTP:** `out.dnsexit.com:587`, STARTTLS
+- **Client:** Thunderbird (IMAP)
+- **Webmail:** https://webmail.dnsexit.com
+- **Configured:** 2026-10-24/25
+
+For bulk sends beyond 20/day (e.g. announcements to members), a mailing list
+service (Mailchimp, Brevo, etc.) will be needed as a separate layer.
 
 ## DNSSEC
 
