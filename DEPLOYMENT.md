@@ -5,7 +5,7 @@
 | Address | Status |
 |---|---|
 | `abiegnusbasecamp.org` | Primary — custom domain |
-| `www.abiegnusbasecamp.org` | CNAME → apex, both work |
+| `www.abiegnusbasecamp.org` | Custom domain on the Worker — serves the site directly, no redirect |
 | `droid.abc-outercollege.workers.dev` | Workers.dev fallback — still publicly accessible |
 
 ## Cloudflare account
@@ -14,14 +14,18 @@
 - **Account ID:** `899b2e05feb65d2c3d8687351e5865c8`
 - **Worker name:** `droid`
 - **Deploy root:** `site/` (no build step)
-- **Auto-deploy:** push to `main` → Cloudflare deploys automatically
+- **Auto-deploy:** push to `main` → Cloudflare deploys automatically. It
+  occasionally skips a commit (seen 2026-11-10); check Workers & Pages → droid →
+  Deployments, and push an empty commit (`git commit --allow-empty`) to
+  trigger a fresh build.
 
 ## DNS records (abiegnusbasecamp.org)
 
 | Type | Name | Content | Proxied | Added |
 |---|---|---|---|---|
 | Worker | `abiegnusbasecamp.org` | `droid` | Yes | 2026-10-24 |
-| CNAME | `www` | `abiegnusbasecamp.org` | Yes | 2026-10-24 |
+| Worker | `www.abiegnusbasecamp.org` | `droid` | Yes | 2026-11-12 |
+| CNAME | `relay._domainkey` | `dkim.dnsexit.com` | No | 2026-11-10 |
 | MX | `@` | `mail.dnsexit.com` (pri 10) | No | 2026-10-24 |
 | MX | `@` | `mail2.dnsexit.com` (pri 20) | No | 2026-10-24 |
 | TXT | `@` | `v=spf1 include:dnsexit.com ~all` | No | 2026-10-25 |
@@ -29,6 +33,16 @@
 
 **DNS Setup:** Full (Cloudflare nameservers)
 **Nameservers:** `autumn.ns.cloudflare.com`, `vicente.ns.cloudflare.com`
+
+**`www` history:** until 2026-11-12 `www` was a proxied CNAME to the apex, which
+returned a 522 (the apex is a Worker, so there is no origin to connect to). It
+was replaced by attaching `www` to the Worker as a custom domain. Cloudflare
+will not attach a custom domain while a DNS record exists for that hostname,
+so delete any `www` record first.
+
+**DKIM:** DNSExit signs outbound mail with selector `relay`. The
+`relay._domainkey` CNAME publishes its key. Verified 2026-11-10: SPF, DKIM and
+DMARC all pass at Gmail.
 
 **Note:** The placeholder `v=spf1 -all` and null DKIM records that were here
 prior to 2026-10-25 have been replaced. SPF now authorises DNSExit as the
